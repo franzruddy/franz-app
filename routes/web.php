@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,9 @@ use App\Http\Controllers\CursoController;
 |
 */
 
-/*Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
-});*/
+});
 
 Route::get('/users',[UserController::class,'index']);
 
@@ -27,3 +28,5 @@ Route::controller(CursoController::class)->group(function(){
     Route::get('cursos/{curso}','show');
 
 });
+
+Route::resource('tasks',TaskController::class);
